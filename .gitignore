@@ -3,6 +3,7 @@
 *.log
 *.pyc
 *.swp
+.env
 .DS_Store
 .atom/
 .build/
@@ -43,3 +44,18 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Extra MD files (keep only README.md and document.md)
+BUILD_FIX_SUMMARY.md
+FIX_401_UPLOAD_ERROR.md
+QUICK_FIX_SUMMARY.md
+SETUP.md
+TESTING_GUIDE.md
+curanet.md
+
+# Build artifacts
+*.apk
+*.aab
+
+# Python scripts
+*.py

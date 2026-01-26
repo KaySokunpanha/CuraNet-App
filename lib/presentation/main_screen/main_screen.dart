@@ -10,12 +10,16 @@ class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<MainScreen> createState() => MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   late PageController _pageController;
+
+  static MainScreenState? of(BuildContext context) {
+    return context.findAncestorStateOfType<MainScreenState>();
+  }
 
   @override
   void initState() {
@@ -35,16 +39,20 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
+  void switchToTab(int index) {
+    if (index >= 0 && index < 4) {
+      _pageController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
   void _onBottomNavTapped(CustomBottomBarItem item) {
     // Navigate to the page corresponding to the item index
     // Enum order matches page order: HealthID (0), Records (1), Schedule (2), Profile (3)
-    final index = item.index;
-
-    _pageController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
+    switchToTab(item.index);
   }
 
   @override

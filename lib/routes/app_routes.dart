@@ -9,6 +9,8 @@ import '../presentation/appointments_screen/appointments_screen.dart';
 import '../presentation/profile_screen/profile_screen.dart';
 import '../presentation/schedule_screen/schedule_screen.dart'; // Import ScheduleScreen
 import '../presentation/main_screen/main_screen.dart';
+import '../presentation/emergency_screen/emergency_screen.dart';
+import '../presentation/nearby_care_screen/nearby_care_screen.dart';
 
 class AppRoutes {
   // TODO: Add your routes here
@@ -22,6 +24,8 @@ class AppRoutes {
   static const String appointments = '/appointments';
   static const String profile = '/profile-screen';
   static const String schedule = '/schedule-screen';
+  static const String emergencyScreen = '/emergency-screen';
+  static const String nearbyCareScreen = '/nearby-care-screen';
   // care is deprecated/removed from active routes map to avoid confusion, linked to schedule in old files
   static const String care = '/care-screen';
 
@@ -36,6 +40,8 @@ class AppRoutes {
     appointments: (context) => const AppointmentsScreen(),
     profile: (context) => const ProfileScreen(),
     schedule: (context) => const ScheduleScreen(),
+    emergencyScreen: (context) => const EmergencyScreen(),
+    nearbyCareScreen: (context) => const NearbyCareScreen(),
     '/main-screen': (context) => const MainScreen(),
     // TODO: Add your other routes here
   };

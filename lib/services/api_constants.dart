@@ -1,10 +1,6 @@
 class ApiConstants {
   // Base URL - Vercel Production Backend
-  // static const String baseUrl = 'https://curanet-backend.vercel.app';
-  static const String baseUrl =
-      'http://192.168.1.11:3001'; // Local dev - Host machine IP
-  // static const String baseUrl = 'http://10.0.2.2:3001'; // Android emulator
-  // static const String baseUrl = 'http://localhost:3001'; // iOS simulator
+  static const String baseUrl = 'https://curanet-backend.vercel.app';
 
   // Auth endpoints
   static const String register = '/api/auth/register';

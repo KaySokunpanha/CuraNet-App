@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../add_record/add_record_bottom_sheet.dart';
+import '../../main_screen/main_screen.dart';
+import 'package:curanet/routes/app_routes.dart';
 
 class QuickActionsGrid extends StatelessWidget {
   const QuickActionsGrid({super.key});
@@ -22,9 +24,9 @@ class QuickActionsGrid extends StatelessWidget {
       color: Color(0xFFF44336),
     ),
     _QuickAction(
-      icon: Icons.qr_code_2_outlined,
-      label: 'Share ID',
-      color: Color(0xFF9C27B0),
+      icon: Icons.local_hospital_rounded,
+      label: 'Find Hospital',
+      color: Color(0xFFD32F2F), // Red for Action/Urgency
     ),
   ];
 
@@ -44,6 +46,13 @@ class QuickActionsGrid extends StatelessWidget {
                     if (action.isAddRecord) {
                       // Show Add Record bottom sheet
                       AddRecordBottomSheet.show(context);
+                    } else if (action.label == 'Schedule') {
+                      // Navigate to Schedule Tab (Index 2 in MainScreen)
+                      MainScreenState.of(context)?.switchToTab(2);
+                    } else if (action.label == 'Emergency') {
+                      Navigator.pushNamed(context, AppRoutes.emergencyScreen);
+                    } else if (action.label == 'Find Hospital') {
+                      Navigator.pushNamed(context, AppRoutes.nearbyCareScreen);
                     } else if (action.routeName != null) {
                       Navigator.pushNamed(context, action.routeName!);
                     } else {
@@ -66,11 +75,7 @@ class QuickActionsGrid extends StatelessWidget {
                           color: action.color.withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: Icon(
-                          action.icon,
-                          color: action.color,
-                          size: 28,
-                        ),
+                        child: Icon(action.icon, color: action.color, size: 28),
                       ),
                       const SizedBox(height: 8),
                       Text(

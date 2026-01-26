@@ -5,6 +5,9 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+import java.util.Properties
+import java.io.FileInputStream
+
 android {
     namespace = "com.company.curanet"
     compileSdk = flutter.compileSdkVersion
@@ -29,6 +32,14 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         multiDexEnabled = true
+        
+        // Read .env file
+        val envFile = rootProject.file("../.env")
+        val env = Properties()
+        if (envFile.exists()) {
+            env.load(FileInputStream(envFile))
+        }
+        manifestPlaceholders["GOOGLE_MAPS_API_KEY"] = env.getProperty("GOOGLE_MAPS_API_KEY") ?: ""
     }
 
     buildTypes {
@@ -36,6 +47,9 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 }
