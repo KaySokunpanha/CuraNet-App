@@ -101,8 +101,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/curanet.git
-   cd curanet
+   git clone https://github.com/mukundjha-mj/CuraNet-App.git
+   cd CuraNet-App
    ```
 
 2. **Install dependencies**
@@ -201,7 +201,7 @@ https://curanet-backend.vercel.app
 ## Backend Repository
 
 The backend source code is available at:
-- **Repository**: [CuraNet-Backend](https://github.com/yourusername/curanet-backend)
+- **Repository**: [CuraNet-Backend](https://github.com/mukundjha-mj/CuraNet-Backend)
 
 ---
 
@@ -227,8 +227,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any queries or suggestions, feel free to reach out:
 
-- **Email**: your.email@example.com
-- **GitHub**: [@yourusername](https://github.com/yourusername)
+- **Email**: mukundjha204@gmail.com
+- **GitHub**: [@mukundjha-mj](https://github.com/mukundjha-mj)
 
 ---
 
